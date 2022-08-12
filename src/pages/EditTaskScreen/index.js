@@ -53,8 +53,7 @@ export default function EditTaskScreen() {
 				console.log(error.message);
 			  })
 		}else{
-			
-			console.log("ta vazio ai ein");
+			alert("Preencha todos os campos!")
 		}
 		 
 		
@@ -73,7 +72,7 @@ export default function EditTaskScreen() {
 				console.log(error.message);
 			})
 		}else{
-			console.log("ta vazio ai ein");
+			alert("Preencha todos os campos!")
 		}
 		
 	}
@@ -121,7 +120,7 @@ export default function EditTaskScreen() {
 
 				<View style={styles.saveTaskWrapper}>
 					<TouchableOpacity style={styles.saveButton} onPress={isEditMode? handleEditTask : handleSaveTask}>
-						<Text style={styles.saveButtonText}>{isEditMode ? 'Salvar alteracoes' : 'Salvar'}</Text>
+						<Text style={styles.saveButtonText}>{isEditMode ? 'Salvar alterações' : 'Salvar'}</Text>
 					</TouchableOpacity>
 
 					{

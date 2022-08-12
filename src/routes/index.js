@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Routes() {
 	return (
-		<Stack.Navigator screenOptions={{headerTransparent: true }} initialRouteName='Authentication'>
+		<Stack.Navigator screenOptions={{headerTransparent: true }} initialRouteName='Home'>
 			<Stack.Screen options={{headerShown: false}} name='Authentication' component={AuthenticationScreen}/>
 			<Stack.Screen options={{headerShown: false}} name='Home' component={HomeScreen} />
 			<Stack.Screen options={{title: ''}} name='EditTask' component={EditTaskScreen}/>

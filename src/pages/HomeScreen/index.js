@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, TouchableOpacity, FlatList, Text} from 'react-native';
+import { View, TouchableOpacity, FlatList, Text } from 'react-native';
 
-import { useFocusEffect, useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import Task from '../HomeScreen/components/Task';
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 
@@ -32,6 +32,7 @@ export default function HomeScreen() {
 			setUser(null)
 			replace('Authentication')
 		}).catch(error => {
+			alert("Algo deu errado.")
 			console.log(error.message);
 		})
 		
@@ -47,11 +48,8 @@ export default function HomeScreen() {
 			unsubscribe = onSnapshot(q, (snapshot) => {
 				setTasks(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
 			})
-			console.log("currentUser: " + auth.currentUser.uid);
-			console.log("user: " + user.email);
 			
 		}else{
-			console.log("CARALHO");
 			replace('Authentication')
 		}
 
