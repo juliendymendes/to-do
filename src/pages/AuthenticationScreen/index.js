@@ -10,6 +10,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { useNavigation } from "@react-navigation/native"
 import {UserContext} from "../../contexts/UserContext"
 
+import { useValidateInput } from "../../hooks/useValidateInput"
+
 export default function AuthenticationScreen(){
 	const [email, setEmail] = useState()
 	const [senha, setSenha] = useState()
@@ -18,6 +20,8 @@ export default function AuthenticationScreen(){
 	const { replace } = useNavigation()
 
 	const [ user, setUser] = useContext(UserContext)
+
+	const { isValid } = useValidateInput([email, senha])
 
 	function validateInput() {
 		if(email == undefined || senha == undefined){
@@ -35,7 +39,7 @@ export default function AuthenticationScreen(){
 	}
 
 	function handleAuth(){
-		if(validateInput()){
+		if(isValid){
 			if(isRegisterScreen){
 			
 				createUserWithEmailAndPassword(auth, email, senha)
